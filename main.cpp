@@ -66,7 +66,7 @@ void display(void) //
 
     //Bagian tanah
     glBegin(GL_QUADS);
-       glColor3f(208/255.0f,165/255.0f,48/255.0f);
+       glColor3f(37/255.0f,134/255.0f,22/255.0f);
         glVertex3f(-45.0,-20.0,35.0);
         glVertex3f(40.0,-20.0,35.0);
         glVertex3f(40.0,-20.0,-45.0);
@@ -576,19 +576,19 @@ void display(void) //
 
 /////////////////////////////////////////////////////////
 //jendela depan
-   /* for(float b=-10.0;b<=10;b+=5.0)
+    for(float b=-10.0;b<=5;b+=4.0)
     {
-        for(float a=-20.0;a<=8.0;a+=4.0)
+        for(float a=-20.0;a<=-10.0;a+=5.0)
         {
             glBegin(GL_POLYGON);
                 glColor3f(0.0,0.0,0.0);
-                glVertex3f(2.0+a,-9.0-b,14.1);
-                glVertex3f(2.0+a,-7.0-b,14.1);
-                glVertex3f(4.0+a,-7.0-b,14.1);
-                glVertex3f(4.0+a,-9.0-b,14.1);
+                glVertex3f(12.0+a,-9.0-b,20.1);
+                glVertex3f(12.0+a,-7.0-b,20.1);
+                glVertex3f(14.0+a,-7.0-b,20.1);
+                glVertex3f(14.0+a,-9.0-b,20.1);
             glEnd();
         }
-    }*/
+    }
 
     //jendela depan bagian paling bawah
     for(float b=10.0;b<=15;b+=5.0)
@@ -729,10 +729,10 @@ void display(void) //
 //pintu belakang
     glBegin(GL_POLYGON);
     glColor3f(1.0,1.0,1.0);
-    glVertex3f(0.0,-15.0,-16.1);
+    glVertex3f(0.0,-13.0,-16.1);
     glVertex3f(0.0,-20.0,-16.1);
     glVertex3f(-5.0,-20.0,-16.1);
-    glVertex3f(-5.0,-15.0,-16.1);
+    glVertex3f(-5.0,-13.0,-16.1);
     glEnd();
 //////////////////////////////////////////////////////
 
