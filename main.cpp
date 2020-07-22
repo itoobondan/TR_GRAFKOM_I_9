@@ -280,6 +280,77 @@ void display(void) //
     }
     /////////////////////////////////////////////////////////////////////////////
 
+    //PILAR NO 2 dari atas
+    // BAGIAN PILAR ATAS
+    for (float a=-10.0; a<=30.0; a+=33.0)
+        {
+        for (float b=-10.0; b<=10.0; b+=210.0)
+        {
+                                                        //glColor3f(255/255.0f,135/255.0f,14/255.0f);
+    glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(-9.5+a,0.0-b,-7.5);
+        glVertex3f(-11.0+a,-5.0-b,-9.0);
+        glVertex3f(-11.0+a,-5.0-b,-6.0);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+       glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(-9.5+a,0.0-b,12.5);
+        glVertex3f(-11.0+a,-5.0-b,14.0);
+        glVertex3f(-11.0+a,-5.0-b,11.0);
+    glEnd();
+
+    //BAGIAN PILAR ATAS (2)
+glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(-9.5+a,0.0-b,-7.5);
+        glVertex3f(-8.0+a,-5.0-b,-9.0);
+        glVertex3f(-8.0+a,-5.0-b,-6.0);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+       glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(-9.5+a,0.0-b,12.5);
+        glVertex3f(-8.0+a,-5.0-b,14.0);
+        glVertex3f(-8.0+a,-5.0-b,11.0);
+    glEnd();
+
+   //BAGIAN PILAR ATAS (3)
+    glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(-9.5+a,0.0-b,-7.5);
+        glVertex3f(-8.0+a,-5.0-b,-9.0);
+        glVertex3f(-11.0+a,-5.0-b,-9.0);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+       glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(-9.5+a,0.0-b,12.5);
+        glVertex3f(-8.0+a,-5.0-b,11.0);
+        glVertex3f(-11.0+a,-5.0-b,11.0);
+    glEnd();
+
+
+    //BAGIAN PILAR (4)
+    glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(-9.5+a,0.0-b,-7.5);
+        glVertex3f(-8.0+a,-5.0-b,-6.0);
+        glVertex3f(-11.0+a,-5.0-b,-6.0);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+       glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(-9.5+a,0.0-b,12.5);
+        glVertex3f(-8.0+a,-5.0-b,14.0);
+        glVertex3f(-11.0+a,-5.0-b,14.0);
+    glEnd();
+
+
+        }
+    }
+///////////////////////////////////////////////////////////////////////////////////
     //bagian pilar atas
     for(int b=-10.0;b<=10;b+=25.0)
     {
