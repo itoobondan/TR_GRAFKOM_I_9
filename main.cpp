@@ -209,7 +209,75 @@ void display(void) //
         glVertex3f(2.0,15.0,-1.0);
         glVertex3f(5.0,15.0,-1.0);
     glEnd();
+    ////////////////////////////////////////////////////////////////////////////
+    // BAGIAN PILAR ATAS
+    for (float a=-10.0; a<=10.0; a+=12.0)
+        {
+        for (float b=-10.0; b<=10.0; b+=210.0)
+        {
 
+    glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(1.5+a,10.0-b,-2.5);
+        glVertex3f(0.0+a,5.0-b,-4.0);
+        glVertex3f(0.0+a,5.0-b,-1.0);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+       glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(1.5+a,10.0-b,7.5);
+        glVertex3f(0.0+a,5.0-b,9.0);
+        glVertex3f(0.0+a,5.0-b,6.0);
+    glEnd();
+
+    //BAGIAN PILAR ATAS (2)
+    glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(1.5+a,10.0-b,-2.5);
+        glVertex3f(3.0+a,5.0-b,-4.0);
+        glVertex3f(3.0+a,5.0-b,-1.0);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(1.5+a,10.0-b,7.5);
+        glVertex3f(3.0+a,5.0-b,9.0);
+        glVertex3f(3.0+a,5.0-b,6.0);
+    glEnd();
+
+    //BAGIAN PILAR ATAS (3)
+    glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(1.5+a,10.0-b,-2.5);
+        glVertex3f(0.0+a,5.0-b,-1.0);
+        glVertex3f(3.0+a,5.0-b,-1.0);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(1.5+a,10.0-b,7.5);
+        glVertex3f(3.0+a,5.0-b,9.0);
+        glVertex3f(0.0+a,5.0-b,9.0);
+    glEnd();
+
+
+    //BAGIAN PILAR (4)
+    glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(1.5+a,10.0-b,-2.5);
+        glVertex3f(0.0+a,5.0-b,-4.0);
+        glVertex3f(3.0+a,5.0-b,-4.0);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+        glColor3f(255/255.0f,135/255.0f,14/255.0f);
+        glVertex3f(1.5+a,10.0-b,7.5);
+        glVertex3f(3.0+a,5.0-b,6.0);
+        glVertex3f(0.0+a,5.0-b,6.0);
+    glEnd();
+
+        }
+    }
     /////////////////////////////////////////////////////////////////////////////
 
     //bagian pilar atas
@@ -854,6 +922,46 @@ void keyboard(unsigned char key, int a, int b)
 {
     switch (key)
     {
+    case 'w':
+    case 'W':
+        glTranslatef(0.0,0.0,3.0);
+        break;
+    case 'd':
+    case 'D':
+        glTranslatef(3.0,0.0,0.0);
+        break;
+    case 's':
+    case 'S':
+        glTranslatef(0.0,0.0,-3.0);
+        break;
+    case 'a':
+    case 'A':
+        glTranslatef(-3.0,0.0,0.0);
+        break;
+    case '7':
+        glTranslatef(0.0,3.0,0.0);//geser atas
+        break;
+    case '9':
+        glTranslatef(0.0,-3.0,0.0);//geser bawah
+        break;
+    case '2':
+        glRotatef(2.0,1.0,0.0,0.0);//rotate bawah
+        break;
+    case '8':
+        glRotatef(-2.0,1.0,0.0,0.0);//rotate atas
+        break;
+    case '6':
+        glRotatef(2.0,0.0,1.0,0.0);//rotate kanan x
+        break;
+    case '4':
+        glRotatef(-2.0,0.0,1.0,0.0);//rotate kiri x
+        break;
+    case '1':
+        glRotatef(2.0,0.0,0.0,1.0);//rotate kiri y
+        break;
+    case '3':
+        glRotatef(-2.0,0.0,0.0,1.0);//rotate kanan y
+        break;
     case '5':
         if(is_depth)
         {
