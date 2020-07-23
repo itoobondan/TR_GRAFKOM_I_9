@@ -1067,17 +1067,130 @@ glBegin(GL_TRIANGLES);
     //keramik
     for(float b=-10.0;b<=-6;b+=5.0)
     {
-        for(float a=-20.0;a<=52.0;a+=3.1)
+        for(float a=-20.0;a<=52.0;a+=2.5)
         {
+            for(float c=-20.0; c<=8; c+=2.5){
             glBegin(GL_POLYGON);
-                glColor3f(0.0,0.0,0.0);
-                glVertex3f(-16.0+a,-30.0-b,-6.1);
-                glVertex3f(-16.0+a,-30.0-b,-4.1);
-                glVertex3f(-19.0+a,-30.0-b,-4.1);
-                glVertex3f(-19.0+a,-30.0-b,-6.1);
+                glColor3f(155/255.0f,81/255.0f,6/255.0f);
+                glVertex3f(-17.0+a,-30.0-b,6.1+c);
+                glVertex3f(-17.0+a,-30.0-b,4.1+c);
+                glVertex3f(-19.0+a,-30.0-b,4.1+c);
+                glVertex3f(-19.0+a,-30.0-b,6.1+c);
             glEnd();
+            }
         }
     }
+    ///////////////////////////////////////////////////////////
+    //KARPET
+    glBegin(GL_POLYGON);
+        glColor3f(122/255.0f,211/255.0f,155/255.0f);
+        glVertex3f(-5.0,-20.0,7.1);
+        glVertex3f(-5.0,-20.0,-11.1);
+        glVertex3f(-35.0,-20.0,-11.1);
+        glVertex3f(-35.0,-20.0,7.1);
+    glEnd();
+
+    //oembuatan meja
+    glBegin(GL_POLYGON);
+        glColor3f(122/255.0f,211/255.0f,155/255.0f);
+        glVertex3f(-33.0,-20.0,14.1);
+        glVertex3f(-33.0,-20.0,-16.1);
+        glVertex3f(-40.0,-20.0,-16.1);
+        glVertex3f(-40.0,-20.0,14.1);
+    glEnd();
+
+    //oembuatan meja resepsionis \atas
+    glBegin(GL_POLYGON);
+        glColor3f(51/255.0f,25/255.0f,0/255.0f);
+        glVertex3f(-35.0,-17.0,14.1);
+        glVertex3f(-35.0,-17.0,-16.1);
+        glVertex3f(-33.0,-17.0,-16.1);
+        glVertex3f(-33.0,-17.0,14.1);
+    glEnd();
+
+    //oembuatan meja resepisionis \depan
+    glBegin(GL_POLYGON);
+        glColor3f(51/255.0f,25/255.0f,0/255.0f);
+        glVertex3f(-33.0,-20.0,14.1);
+        glVertex3f(-33.0,-20.0,-16.1);
+        glVertex3f(-33.0,-17.0,-16.1);
+        glVertex3f(-33.0,-17.0,14.1);
+    glEnd();
+
+    //oembuatan meja resepisionis \blkg
+    glBegin(GL_POLYGON);
+        glColor3f(51/255.0f,25/255.0f,0/255.0f);
+        glVertex3f(-35.0,-20.0,14.1);
+        glVertex3f(-35.0,-20.0,-16.1);
+        glVertex3f(-35.0,-17.0,-16.1);
+        glVertex3f(-35.0,-17.0,14.1);
+    glEnd();
+
+    //oembuatan meja resepisionis \kanan
+    glBegin(GL_POLYGON);
+        glColor3f(51/255.0f,25/255.0f,0/255.0f);
+        glVertex3f(-35.0,-20.0,13.9);
+        glVertex3f(-33.0,-20.0,13.9);
+        glVertex3f(-33.0,-17.0,13.9);
+        glVertex3f(-35.0,-17.0,13.9);
+    glEnd();
+
+    //oembuatan meja resepisionis \kiri
+    glBegin(GL_POLYGON);
+        glColor3f(51/255.0f,25/255.0f,0/255.0f);
+        glVertex3f(-35.0,-20.0,-15.9);
+        glVertex3f(-33.0,-20.0,-15.9);
+        glVertex3f(-33.0,-17.0,-15.9);
+        glVertex3f(-35.0,-17.0,-15.9);
+    glEnd();
+
+    ////////////////////////////////////////////
+
+    //AC depan
+    glBegin(GL_POLYGON);
+        glColor3f(1.0,1.0,1.0);
+        glVertex3f(-30.0,-5.0,14.1);
+        glVertex3f(-30.0,-5.0,-14.1);
+        glVertex3f(-30.0,-7.0,-14.1);
+        glVertex3f(-30.0,-7.0,14.1);
+    glEnd();
+
+    //AC blkng
+    glBegin(GL_POLYGON);
+        glColor3f(1.0,1.0,1.0);
+        glVertex3f(-34.9,-4.9,14.1);
+        glVertex3f(-34.9,-4.9,-14.1);
+        glVertex3f(-34.9,-7.0,-14.1);
+        glVertex3f(-34.9,-7.0,14.1);
+    glEnd();
+
+    //AC bawah
+     glBegin(GL_POLYGON);
+        glColor3f(1.0,1.0,1.0);
+        glVertex3f(-35.0,-7.0,14.1);
+        glVertex3f(-35.0,-7.0,-14.1);
+        glVertex3f(-30.0,-7.0,-14.1);
+        glVertex3f(-30.0,-7.0,14.1);
+    glEnd();
+
+    //AC  atas
+     glBegin(GL_POLYGON);
+        glColor3f(1.0,1.0,1.0);
+        glVertex3f(-35.0,-5.1,14.1);
+        glVertex3f(-35.0,-5.1,-14.1);
+        glVertex3f(-30.0,-5.1,-14.1);
+        glVertex3f(-30.0,-5.1,14.1);
+    glEnd();
+
+    //AC depan
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,0.0);
+        glVertex3f(-29.5,-6.0,14.1);
+        glVertex3f(-29.5,-6.0,-14.1);
+        glVertex3f(-29.5,-7.0,-14.1);
+        glVertex3f(-29.5,-7.0,14.1);
+    glEnd();
+
     /////////////////////////////////////////////////////////
 
     glPopMatrix();
