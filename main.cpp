@@ -4,7 +4,7 @@
 #else
 #include <GL/glut.h>
 #endif
-#include <math.h>
+
 #include <stdlib.h>
 
 #define RATIO 1.200 //mendefinisikan rasio dengan perbandingan 1:1.200
@@ -27,6 +27,8 @@ float ydiff=0.0;
 bool mousedown = false;
 int x;
 int is_depth;
+int a;
+
 
 int main(int argc, char **argv)
 {
@@ -41,7 +43,7 @@ int main(int argc, char **argv)
     glutKeyboardFunc(keyboard);
     glutMouseFunc(mouse);
     glutMotionFunc(mousemotion);
-    glutIdleFunc(display);
+   // glutIdleFunc(display);
     glutMainLoop();
     return 0;
 }
@@ -50,7 +52,7 @@ void init(void)
 {
     glClearColor(0.0,0.0,0.0,0.0);
     glMatrixMode(GL_PROJECTION);
-    //glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHTING);
     glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_LIGHT0);
     glEnable(GL_DEPTH_TEST);
@@ -62,8 +64,11 @@ void init(void)
 
 void display(void) //
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();
+    if (is_depth)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    else
+        glClear(GL_COLOR_BUFFER_BIT);
+    //glLoadIdentity();
     gluLookAt(0.0, 0.0, 3.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);//untuk mengatur penglihatan mata/penglihatan objek
     glRotatef(xrot, 1.0, 0.0, 0.0);
     glRotatef(yrot, 0.0, 1.0, 0.0);
@@ -1089,16 +1094,113 @@ glBegin(GL_TRIANGLES);
         glVertex3f(-35.0,-20.0,-11.1);
         glVertex3f(-35.0,-20.0,7.1);
     glEnd();
-    
-    //KARPET arah kanan
+
+        //KARPET arah kanan
+        glBegin(GL_POLYGON);
+            glColor3f(122/255.0f,211/255.0f,155/255.0f);
+            glVertex3f(5.0,-20.0,7.1);
+            glVertex3f(5.0,-20.0,-11.1);
+            glVertex3f(30.0,-20.0,-11.1);
+            glVertex3f(30.0,-20.0,7.1);
+        glEnd();
+    /////////////////////////////////////////////////////////////////////
+
+    //sofa (1)
     glBegin(GL_POLYGON);
-        glColor3f(122/255.0f,211/255.0f,155/255.0f);
-        glVertex3f(5.0,-20.0,7.1);
-        glVertex3f(5.0,-20.0,-11.1);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-20.0,-14.1);
+        glVertex3f(10.0,-20.0,-11.1);
         glVertex3f(30.0,-20.0,-11.1);
-        glVertex3f(30.0,-20.0,7.1);
+        glVertex3f(30.0,-20.0,-14.1);
     glEnd();
-    /////////////////////////////////////////////////////////////
+
+     //sofa (1)blkng
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-16.0,-14.1);
+        glVertex3f(10.0,-20.0,-14.1);
+        glVertex3f(30.0,-20.0,-14.1);
+        glVertex3f(30.0,-16.0,-14.1);
+    glEnd();
+
+    //sofa (1)atas
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-16.0,-14.1);
+        glVertex3f(10.0,-16.0,-13.1);
+        glVertex3f(30.0,-16.0,-13.1);
+        glVertex3f(30.0,-16.0,-14.1);
+    glEnd();
+
+    //sofa (1)dpn
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-18.0,-13.1);
+        glVertex3f(10.0,-16.0,-13.1);
+        glVertex3f(30.0,-16.0,-13.1);
+        glVertex3f(30.0,-18.0,-13.1);
+    glEnd();
+
+    //sofa (1)maju
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-18.0,-13.1);
+        glVertex3f(10.0,-18.0,-11.1);
+        glVertex3f(30.0,-18.0,-11.1);
+        glVertex3f(30.0,-18.0,-13.1);
+    glEnd();
+
+    //sofa (1)turun
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-18.0,-11.1);
+        glVertex3f(10.0,-20.0,-11.1);
+        glVertex3f(30.0,-20.0,-11.1);
+        glVertex3f(30.0,-18.0,-11.1);
+    glEnd();
+
+    //sofa (1)kanan
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(30.0,-18.0,-14.1);
+        glVertex3f(30.0,-20.0,-14.1);
+        glVertex3f(30.0,-20.0,-11.1);
+        glVertex3f(30.0,-18.0,-11.1);
+    glEnd();
+
+    //sofa (1) kiri
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-18.0,-14.1);
+        glVertex3f(10.0,-20.0,-14.1);
+        glVertex3f(10.0,-20.0,-11.1);
+        glVertex3f(10.0,-18.0,-11.1);
+    glEnd();
+
+    //sofa (1)kanan
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(30.0,-16.0,-14.1);
+        glVertex3f(30.0,-20.0,-14.1);
+        glVertex3f(30.0,-20.0,-13.1);
+        glVertex3f(30.0,-16.0,-13.1);
+    glEnd();
+
+    //sofa (1) kiri
+        glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-16.0,-14.1);
+        glVertex3f(10.0,-20.0,-14.1);
+        glVertex3f(10.0,-20.0,-13.1);
+        glVertex3f(10.0,-16.0,-13.1);
+    glEnd();
+
+    glBegin(GL_LINES);
+        glColor3f(0.0,0.0,0.0);
+        glVertex3f(10.0,-18.0,-13.1);
+        glVertex3f(30.0,-18.0,-13.1);
+        glEnd();
+    ////////////////////////////////////////////////////////////////////
 
     //oembuatan meja
     glBegin(GL_POLYGON);
@@ -1200,103 +1302,9 @@ glBegin(GL_TRIANGLES);
         glVertex3f(-29.5,-7.0,-14.1);
         glVertex3f(-29.5,-7.0,14.1);
     glEnd();
-    
     ////////////////////////////////////////////////////////
-    //sofa (1)
-    glBegin(GL_POLYGON);
-        glColor3f(0.0,0.0,1.0);
-        glVertex3f(10.0,-20.0,-14.1);
-        glVertex3f(10.0,-20.0,-11.1);
-        glVertex3f(30.0,-20.0,-11.1);
-        glVertex3f(30.0,-20.0,-14.1);
-    glEnd();
 
-     //sofa (1)blkng
-    glBegin(GL_POLYGON);
-        glColor3f(0.0,0.0,1.0);
-        glVertex3f(10.0,-16.0,-14.1);
-        glVertex3f(10.0,-20.0,-14.1);
-        glVertex3f(30.0,-20.0,-14.1);
-        glVertex3f(30.0,-16.0,-14.1);
-    glEnd();
 
-    //sofa (1)atas
-    glBegin(GL_POLYGON);
-        glColor3f(0.0,0.0,1.0);
-        glVertex3f(10.0,-16.0,-14.1);
-        glVertex3f(10.0,-16.0,-13.1);
-        glVertex3f(30.0,-16.0,-13.1);
-        glVertex3f(30.0,-16.0,-14.1);
-    glEnd();
-
-    //sofa (1)dpn
-    glBegin(GL_POLYGON);
-        glColor3f(0.0,0.0,1.0);
-        glVertex3f(10.0,-18.0,-13.1);
-        glVertex3f(10.0,-16.0,-13.1);
-        glVertex3f(30.0,-16.0,-13.1);
-        glVertex3f(30.0,-18.0,-13.1);
-    glEnd();
-
-    //sofa (1)maju
-    glBegin(GL_POLYGON);
-        glColor3f(0.0,0.0,1.0);
-        glVertex3f(10.0,-18.0,-13.1);
-        glVertex3f(10.0,-18.0,-11.1);
-        glVertex3f(30.0,-18.0,-11.1);
-        glVertex3f(30.0,-18.0,-13.1);
-    glEnd();
-
-    //sofa (1)turun
-    glBegin(GL_POLYGON);
-        glColor3f(0.0,0.0,1.0);
-        glVertex3f(10.0,-18.0,-11.1);
-        glVertex3f(10.0,-20.0,-11.1);
-        glVertex3f(30.0,-20.0,-11.1);
-        glVertex3f(30.0,-18.0,-11.1);
-    glEnd();
-
-    //sofa (1)kanan
-    glBegin(GL_POLYGON);
-        glColor3f(0.0,0.0,1.0);
-        glVertex3f(30.0,-18.0,-14.1);
-        glVertex3f(30.0,-20.0,-14.1);
-        glVertex3f(30.0,-20.0,-11.1);
-        glVertex3f(30.0,-18.0,-11.1);
-    glEnd();
-
-    //sofa (1) kiri
-    glBegin(GL_POLYGON);
-        glColor3f(0.0,0.0,1.0);
-        glVertex3f(10.0,-18.0,-14.1);
-        glVertex3f(10.0,-20.0,-14.1);
-        glVertex3f(10.0,-20.0,-11.1);
-        glVertex3f(10.0,-18.0,-11.1);
-    glEnd();
-
-    //sofa (1)kanan
-    glBegin(GL_POLYGON);
-        glColor3f(0.0,0.0,1.0);
-        glVertex3f(30.0,-16.0,-14.1);
-        glVertex3f(30.0,-20.0,-14.1);
-        glVertex3f(30.0,-20.0,-13.1);
-        glVertex3f(30.0,-16.0,-13.1);
-    glEnd();
-
-    //sofa (1) kiri
-        glBegin(GL_POLYGON);
-        glColor3f(0.0,0.0,1.0);
-        glVertex3f(10.0,-16.0,-14.1);
-        glVertex3f(10.0,-20.0,-14.1);
-        glVertex3f(10.0,-20.0,-13.1);
-        glVertex3f(10.0,-16.0,-13.1);
-    glEnd();
-
-    glBegin(GL_LINES);
-        glColor3f(0.0,0.0,0.0);
-        glVertex3f(10.0,-18.0,-13.1);
-        glVertex3f(30.0,-18.0,-13.1);
-        glEnd();
     /////////////////////////////////////////////////////////
 
     glPopMatrix();
@@ -1325,33 +1333,31 @@ void mouse(int button, int state, int x, int y)
     mousedown=false;
 }
 
-void keyboard(unsigned char key, int a, int b)
+void keyboard(unsigned char key, int x, int y)
 {
     switch (key)
     {
-    case '7':
-        glTranslatef(0.0,3.0,0.0);//geser atas
+    case 'w':
+    case 'W':
+        glTranslatef(0.0,0.0,12.0); //KEDEPAN
         break;
-    case '9':
-        glTranslatef(0.0,-3.0,0.0);//geser bawah
+    case 'd':
+    case 'D':
+        glTranslatef(-3.0,0.0,3.0);//KEKANAN
         break;
-    case '2':
-        glRotatef(2.0,1.0,0.0,0.0);//rotate bawah
+    case 's':
+    case 'S':
+        glTranslatef(0.0,0.0,-3.0);//MUNDUR
         break;
-    case '8':
-        glRotatef(-2.0,1.0,0.0,0.0);//rotate atas
+    case 'a':
+    case 'A':
+        glTranslatef(3.0,0.0,3.0);//KEKIRI
         break;
-    case '6':
-        glRotatef(2.0,0.0,1.0,0.0);//rotate kanan x
+    case'q':
+        glTranslatef(0.0,-3.0,3.0);//KEATAS
         break;
-    case '4':
-        glRotatef(-2.0,0.0,1.0,0.0);//rotate kiri x
-        break;
-    case '1':
-        glRotatef(2.0,0.0,0.0,1.0);//rotate kiri y
-        break;
-    case '3':
-        glRotatef(-2.0,0.0,0.0,1.0);//rotate kanan y
+    case'e':
+        glTranslatef(0.0,3.0,3.0);//KEBAWAH
         break;
     case '5':
         if(is_depth)
@@ -1382,11 +1388,12 @@ void ukuran(int lebar, int tinggi)
 {
     if(tinggi==0) tinggi=1;
     glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
+    //glLoadIdentity();
     gluPerspective(50.0,lebar/tinggi,5.0,500.0);
     glTranslatef(0.0,-5.0,-150.0);
     glMatrixMode(GL_MODELVIEW);
 }
+
 /*@@ -67,8 +73,8 @@ void display(void) /////////////////////////////////////////////////////////////////////////////////////
     //Bagian tanah
     glBegin(GL_QUADS);
