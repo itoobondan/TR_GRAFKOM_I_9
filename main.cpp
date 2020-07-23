@@ -7,6 +7,12 @@
 
 #include <stdlib.h>
 
+#define RATIO 1.200 //mendefinisikan rasio dengan perbandingan 1:1.200
+#define WW 100 //lebar viewport = 100
+#define WH (WW/RATIO) // tinggi viewport
+#define HALFX ((int)(WW/2)) //koordinat X min atau max
+#define HALFY ((int)(WH/2)) //koordinat Y min atau max
+#define deltat .001 //menambahkan nilai t
 void init(void);
 void display(void);
 void mouse(int button, int state, int x, int y);
@@ -67,8 +73,8 @@ void display(void) //
     //Bagian tanah
     glBegin(GL_QUADS);
        glColor3f(37/255.0f,134/255.0f,22/255.0f);
-        glVertex3f(-45.0,-20.0,35.0);
-        glVertex3f(40.0,-20.0,35.0);
+        glVertex3f(-45.0,-20.0,55.0);
+        glVertex3f(40.0,-20.0,55.0);
         glVertex3f(40.0,-20.0,-45.0);
         glVertex3f(-45.0,-20.0,-45.0);
     glEnd();
@@ -730,31 +736,31 @@ glBegin(GL_TRIANGLES);
     }
 
     //jendela depan bagian paling bawah
-    for(float b=10.0;b<=15;b+=5.0)
+    for(float b=10.0;b<=15;b+=4.0)
     {
-        for(float a=-20.0;a<=1.0;a+=6.0)
+        for(float a=-20.0;a<=6.0;a+=3.0)
         {
             glBegin(GL_POLYGON);
                 glColor3f(0.0,0.0,0.0);
-                glVertex3f(-10.0+a,-3.0-b,14.1);
-                glVertex3f(-10.0+a,-1.0-b,14.1);
-                glVertex3f(-12.0+a,-1.0-b,14.1);
-                glVertex3f(-12.0+a,-3.0-b,14.1);
+                glVertex3f(-16.0+a,-4.0-b,14.1);
+                glVertex3f(-16.0+a,-2.0-b,14.1);
+                glVertex3f(-18.0+a,-2.0-b,14.1);
+                glVertex3f(-18.0+a,-4.0-b,14.1);
             glEnd();
         }
     }
 
     //jendela depan bagian paling bawah
-    for(float b=10.0;b<=15;b+=5.0)
+    for(float b=10.0;b<=15;b+=4.0)
     {
-        for(float a=-20.0;a<=1.0;a+=6.0)
+        for(float a=-20.0;a<=6.0;a+=3.0)
         {
             glBegin(GL_POLYGON);
                 glColor3f(0.0,0.0,0.0);
-                glVertex3f(27.0+a,-3.0-b,14.1);
-                glVertex3f(27.0+a,-1.0-b,14.1);
-                glVertex3f(29.0+a,-1.0-b,14.1);
-                glVertex3f(29.0+a,-3.0-b,14.1);
+                glVertex3f(27.0+a,-4.0-b,14.1);
+                glVertex3f(27.0+a,-2.0-b,14.1);
+                glVertex3f(29.0+a,-2.0-b,14.1);
+                glVertex3f(29.0+a,-4.0-b,14.1);
             glEnd();
         }
     }
@@ -762,7 +768,7 @@ glBegin(GL_TRIANGLES);
     //jendela depan kedua dari bawah
     for(float b=10.0;b<=15;b+=10.0)
     {
-        for(float a=-20.0;a<=-5.0;a+=6.0)
+        for(float a=-20.0;a<=3.0;a+=3.0)
         {
             glBegin(GL_POLYGON);
                 glColor3f(0.0,0.0,0.0);
@@ -777,14 +783,14 @@ glBegin(GL_TRIANGLES);
     //jendela depan kedua dari bawah
     for(float b=10.0;b<=15;b+=10.0)
     {
-        for(float a=-20.0;a<=-5.0;a+=6.0)
+        for(float a=-20.0;a<=3.0;a+=3.0)
         {
             glBegin(GL_POLYGON);
                 glColor3f(0.0,0.0,0.0);
-                glVertex3f(-4.0+a,3.0-b,14.1);
-                glVertex3f(-4.0+a,1.0-b,14.1);
-                glVertex3f(-6.0+a,1.0-b,14.1);
-                glVertex3f(-6.0+a,3.0-b,14.1);
+                glVertex3f(-13.0+a,3.0-b,14.1);
+                glVertex3f(-13.0+a,1.0-b,14.1);
+                glVertex3f(-15.0+a,1.0-b,14.1);
+                glVertex3f(-15.0+a,3.0-b,14.1);
             glEnd();
         }
     }
@@ -792,14 +798,14 @@ glBegin(GL_TRIANGLES);
     //jendela depan ketiga dari bawah
     for(float b=10.0;b<=15;b+=10.0)
     {
-        for(float a=-20.0;a<=-10.0;a+=6.0)
+        for(float a=-20.0;a<=-3.0;a+=3.0)
         {
             glBegin(GL_POLYGON);
                 glColor3f(0.0,0.0,0.0);
-                glVertex3f(0.0+a,8.0-b,14.1);
-                glVertex3f(0.0+a,6.0-b,14.1);
-                glVertex3f(2.0+a,6.0-b,14.1);
-                glVertex3f(2.0+a,8.0-b,14.1);
+                glVertex3f(-9.0+a,8.0-b,14.1);
+                glVertex3f(-9.0+a,6.0-b,14.1);
+                glVertex3f(-7.0+a,6.0-b,14.1);
+                glVertex3f(-7.0+a,8.0-b,14.1);
             glEnd();
         }
     }
@@ -807,7 +813,7 @@ glBegin(GL_TRIANGLES);
     //jendela depan ketiga dari bawah
     for(float b=10.0;b<=15;b+=10.0)
     {
-        for(float a=-20.0;a<=-10.0;a+=6.0)
+        for(float a=-20.0;a<=-3.0;a+=3.0)
         {
             glBegin(GL_POLYGON);
                 glColor3f(0.0,0.0,0.0);
@@ -822,7 +828,7 @@ glBegin(GL_TRIANGLES);
     //jendela depan ketiga dari bawah
     for(float b=10.0;b<=15;b+=10.0)
     {
-        for(float a=-20.0;a<=-10.0;a+=6.0)
+        for(float a=-20.0;a<=-12.0;a+=3.0)
         {
             glBegin(GL_POLYGON);
                 glColor3f(0.0,0.0,0.0);
@@ -837,7 +843,7 @@ glBegin(GL_TRIANGLES);
     //jendela depan ketiga dari bawah
     for(float b=10.0;b<=15;b+=10.0)
     {
-        for(float a=-20.0;a<=-10.0;a+=6.0)
+        for(float a=-20.0;a<=-12.0;a+=3.0)
         {
             glBegin(GL_POLYGON);
                 glColor3f(0.0,0.0,0.0);
@@ -849,11 +855,11 @@ glBegin(GL_TRIANGLES);
         }
     }
 
-
-    //jendela BRLAKANG
-/*    for(float b=-10.0;b<=-6;b+=4.0)
+//////////////////////////////////////////////////////////////////
+    //jendela BRLAKANG paling bawah
+    for(float b=-10.0;b<=-6;b+=4.0)
     {
-        for(float a=-20.0;a<=48.0;a+=4.0)
+        for(float a=-20.0;a<=5.0;a+=3.0)
         {
             glBegin(GL_POLYGON);
                 glColor3f(0.0,0.0,0.0);
@@ -863,7 +869,67 @@ glBegin(GL_TRIANGLES);
                 glVertex3f(-18.0+a,-24.0-b,-16.1);
             glEnd();
         }
-    }*/
+    }
+
+    //jendela BRLAKANG paling bawah
+    for(float b=-10.0;b<=-6;b+=4.0)
+    {
+        for(float a=-20.0;a<=5.0;a+=3.0)
+        {
+            glBegin(GL_POLYGON);
+                glColor3f(0.0,0.0,0.0);
+                glVertex3f(26.0+a,-24.0-b,-16.1);
+                glVertex3f(26.0+a,-22.0-b,-16.1);
+                glVertex3f(28.0+a,-22.0-b,-16.1);
+                glVertex3f(28.0+a,-24.0-b,-16.1);
+            glEnd();
+        }
+    }
+
+     //jendela belakang kedua dari bawah
+    for(float b=10.0;b<=15;b+=10.0)
+    {
+        for(float a=-20.0;a<=-2.0;a+=3.0)
+        {
+            glBegin(GL_POLYGON);
+                glColor3f(0.0,0.0,0.0);
+                glVertex3f(27.0+a,3.0-b,-16.1);
+                glVertex3f(27.0+a,1.0-b,-16.1);
+                glVertex3f(29.0+a,1.0-b,-16.1);
+                glVertex3f(29.0+a,3.0-b,-16.1);
+            glEnd();
+        }
+    }
+
+    //jendela belakang kedua dari bawah
+    for(float b=10.0;b<=15;b+=10.0)
+    {
+        for(float a=-20.0;a<=-2.0;a+=3.0)
+        {
+            glBegin(GL_POLYGON);
+                glColor3f(0.0,0.0,0.0);
+                glVertex3f(-11.0+a,3.0-b,-16.1);
+                glVertex3f(-11.0+a,1.0-b,-16.1);
+                glVertex3f(-13.0+a,1.0-b,-16.1);
+                glVertex3f(-13.0+a,3.0-b,-16.1);
+            glEnd();
+        }
+    }
+
+    //jendela BELAKANG ketiga dari bawah
+    for(float b=10.0;b<=15;b+=10.0)
+    {
+        for(float a=-20.0;a<32.0;a+=3.0)
+        {
+            glBegin(GL_POLYGON);
+                glColor3f(0.0,0.0,0.0);
+                glVertex3f(-7.0+a,8.0-b,-12.1);
+                glVertex3f(-7.0+a,6.0-b,-12.1);
+                glVertex3f(-9.0+a,6.0-b,-12.1);
+                glVertex3f(-9.0+a,8.0-b,-12.1);
+            glEnd();
+        }
+    }
 ///////////////////////////////////////////////////////
 //pintu belakang
     glBegin(GL_POLYGON);
@@ -962,6 +1028,42 @@ glBegin(GL_TRIANGLES);
     }
 
     /////////////////////////////////////////////////////
+    //kolam
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,1.0,1.0);
+        glVertex3f(-12.0,-19.9,50.0);
+        glVertex3f(10.0,-19.9,50.0);
+        glVertex3f(10.0,-19.9,35.0);
+        glVertex3f(-12.0,-19.9,35.0);
+    glEnd();
+
+    //kolam
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,1.0,1.0);
+        glVertex3f(-12.0,-19.9,50.0);
+        glVertex3f(-7.0,-19.9,50.0);
+        glVertex3f(-7.0,-19.9,30.0);
+        glVertex3f(-12.0,-19.9,30.0);
+    glEnd();
+
+    //kolam
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,1.0,1.0);
+        glVertex3f(3.0,-19.9,50.0);
+        glVertex3f(10.0,-19.9,50.0);
+        glVertex3f(10.0,-19.9,30.0);
+        glVertex3f(3.0,-19.9,30.0);
+    glEnd();
+
+    //jalanan lobi
+    glBegin(GL_POLYGON);
+        glColor3f(1.0,1.0,1.0);
+        glVertex3f(-7.0,-19.9,35.0);
+        glVertex3f(3.0,-19.9,35.0);
+        glVertex3f(3.0,-19.9,20.0);
+        glVertex3f(-7.0,-19.9,20.0);
+    glEnd();
+    //////////////////////////////////////////////////////
 
     glPopMatrix();
     glutSwapBuffers();
@@ -993,22 +1095,6 @@ void keyboard(unsigned char key, int a, int b)
 {
     switch (key)
     {
-    case 'w':
-    case 'W':
-        glTranslatef(0.0,0.0,3.0);
-        break;
-    case 'd':
-    case 'D':
-        glTranslatef(3.0,0.0,0.0);
-        break;
-    case 's':
-    case 'S':
-        glTranslatef(0.0,0.0,-3.0);
-        break;
-    case 'a':
-    case 'A':
-        glTranslatef(-3.0,0.0,0.0);
-        break;
     case '7':
         glTranslatef(0.0,3.0,0.0);//geser atas
         break;
