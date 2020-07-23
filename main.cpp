@@ -1303,7 +1303,95 @@ glBegin(GL_TRIANGLES);
         glVertex3f(-29.5,-7.0,14.1);
     glEnd();
     ////////////////////////////////////////////////////////
+    //lampu
+        glBegin(GL_POLYGON);
+        glColor3f(51/255.0f,35/255.0f,0.0);
+        glVertex3f(2.0,-16.0,-13.1);
+        glVertex3f(2.0,-20.0,-13.1);
+        glVertex3f(1.0,-20.0,-13.1);
+        glVertex3f(1.0,-16.0,-13.1);
+    glEnd();
 
+    //lampu dpn
+        glBegin(GL_POLYGON);
+        glColor3f(51/255.0f,35/255.0f,0.0);
+        glVertex3f(2.0,-16.0,-12.1);
+        glVertex3f(2.0,-20.0,-12.1);
+        glVertex3f(1.0,-20.0,-12.1);
+        glVertex3f(1.0,-16.0,-12.1);
+    glEnd();
+
+    //lampu kanan
+        glBegin(GL_POLYGON);
+        glColor3f(51/255.0f,35/255.0f,0.0);
+        glVertex3f(2.0,-16.0,-12.1);
+        glVertex3f(2.0,-20.0,-12.1);
+        glVertex3f(2.0,-20.0,-13.1);
+        glVertex3f(2.0,-16.0,-13.1);
+    glEnd();
+
+    //lampu kiri
+        glBegin(GL_POLYGON);
+        glColor3f(51/255.0f,35/255.0f,0.0);
+        glVertex3f(1.0,-16.0,-12.1);
+        glVertex3f(1.0,-20.0,-12.1);
+        glVertex3f(1.0,-20.0,-13.1);
+        glVertex3f(1.0,-16.0,-13.1);
+    glEnd();
+
+    //lampu atas
+    glBegin(GL_POLYGON);
+        glColor3f(255/255.0f,255/255.0f,51/255.0f);
+        glVertex3f(1.0,-16.0,-12.1);
+        glVertex3f(2.0,-16.0,-12.1);
+        glVertex3f(2.0,-16.0,-13.1);
+        glVertex3f(1.0,-16.0,-13.1);
+    glEnd();
+
+    //lampu atas
+    glBegin(GL_POLYGON);
+        glColor3f(255/255.0f,255/255.0f,51/255.0f);
+        glVertex3f(1.0,-14.0,-12.1);
+        glVertex3f(2.0,-14.0,-12.1);
+        glVertex3f(2.0,-14.0,-13.1);
+        glVertex3f(1.0,-14.0,-13.1);
+    glEnd();
+
+     //lampu atas dpn
+    glBegin(GL_POLYGON);
+        glColor3f(255/255.0f,255/255.0f,51/255.0f);
+        glVertex3f(1.0,-16.0,-12.1);
+        glVertex3f(2.0,-16.0,-12.1);
+        glVertex3f(2.0,-14.0,-12.1);
+        glVertex3f(1.0,-14.0,-12.1);
+    glEnd();
+
+    // lampu dpn blkng
+    glBegin(GL_POLYGON);
+        glColor3f(255/255.0f,255/255.0f,51/255.0f);
+        glVertex3f(1.0,-16.0,-13.1);
+        glVertex3f(2.0,-16.0,-13.1);
+        glVertex3f(2.0,-14.0,-13.1);
+        glVertex3f(1.0,-14.0,-13.1);
+    glEnd();
+
+    //lampu atas dpn
+    glBegin(GL_POLYGON);
+        glColor3f(255/255.0f,255/255.0f,51/255.0f);
+        glVertex3f(2.0,-16.0,-13.1);
+        glVertex3f(2.0,-16.0,-12.1);
+        glVertex3f(2.0,-14.0,-12.1);
+        glVertex3f(2.0,-14.0,-13.1);
+    glEnd();
+
+    //lampu atas dpn
+    glBegin(GL_POLYGON);
+        glColor3f(255/255.0f,255/255.0f,51/255.0f);
+        glVertex3f(1.0,-16.0,-13.1);
+        glVertex3f(1.0,-16.0,-12.1);
+        glVertex3f(1.0,-14.0,-12.1);
+        glVertex3f(1.0,-14.0,-13.1);
+    glEnd();
 
     /////////////////////////////////////////////////////////
 
