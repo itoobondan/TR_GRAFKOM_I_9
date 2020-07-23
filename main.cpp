@@ -1089,6 +1089,16 @@ glBegin(GL_TRIANGLES);
         glVertex3f(-35.0,-20.0,-11.1);
         glVertex3f(-35.0,-20.0,7.1);
     glEnd();
+    
+    //KARPET arah kanan
+    glBegin(GL_POLYGON);
+        glColor3f(122/255.0f,211/255.0f,155/255.0f);
+        glVertex3f(5.0,-20.0,7.1);
+        glVertex3f(5.0,-20.0,-11.1);
+        glVertex3f(30.0,-20.0,-11.1);
+        glVertex3f(30.0,-20.0,7.1);
+    glEnd();
+    /////////////////////////////////////////////////////////////
 
     //oembuatan meja
     glBegin(GL_POLYGON);
@@ -1190,7 +1200,103 @@ glBegin(GL_TRIANGLES);
         glVertex3f(-29.5,-7.0,-14.1);
         glVertex3f(-29.5,-7.0,14.1);
     glEnd();
+    
+    ////////////////////////////////////////////////////////
+    //sofa (1)
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-20.0,-14.1);
+        glVertex3f(10.0,-20.0,-11.1);
+        glVertex3f(30.0,-20.0,-11.1);
+        glVertex3f(30.0,-20.0,-14.1);
+    glEnd();
 
+     //sofa (1)blkng
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-16.0,-14.1);
+        glVertex3f(10.0,-20.0,-14.1);
+        glVertex3f(30.0,-20.0,-14.1);
+        glVertex3f(30.0,-16.0,-14.1);
+    glEnd();
+
+    //sofa (1)atas
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-16.0,-14.1);
+        glVertex3f(10.0,-16.0,-13.1);
+        glVertex3f(30.0,-16.0,-13.1);
+        glVertex3f(30.0,-16.0,-14.1);
+    glEnd();
+
+    //sofa (1)dpn
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-18.0,-13.1);
+        glVertex3f(10.0,-16.0,-13.1);
+        glVertex3f(30.0,-16.0,-13.1);
+        glVertex3f(30.0,-18.0,-13.1);
+    glEnd();
+
+    //sofa (1)maju
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-18.0,-13.1);
+        glVertex3f(10.0,-18.0,-11.1);
+        glVertex3f(30.0,-18.0,-11.1);
+        glVertex3f(30.0,-18.0,-13.1);
+    glEnd();
+
+    //sofa (1)turun
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-18.0,-11.1);
+        glVertex3f(10.0,-20.0,-11.1);
+        glVertex3f(30.0,-20.0,-11.1);
+        glVertex3f(30.0,-18.0,-11.1);
+    glEnd();
+
+    //sofa (1)kanan
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(30.0,-18.0,-14.1);
+        glVertex3f(30.0,-20.0,-14.1);
+        glVertex3f(30.0,-20.0,-11.1);
+        glVertex3f(30.0,-18.0,-11.1);
+    glEnd();
+
+    //sofa (1) kiri
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-18.0,-14.1);
+        glVertex3f(10.0,-20.0,-14.1);
+        glVertex3f(10.0,-20.0,-11.1);
+        glVertex3f(10.0,-18.0,-11.1);
+    glEnd();
+
+    //sofa (1)kanan
+    glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(30.0,-16.0,-14.1);
+        glVertex3f(30.0,-20.0,-14.1);
+        glVertex3f(30.0,-20.0,-13.1);
+        glVertex3f(30.0,-16.0,-13.1);
+    glEnd();
+
+    //sofa (1) kiri
+        glBegin(GL_POLYGON);
+        glColor3f(0.0,0.0,1.0);
+        glVertex3f(10.0,-16.0,-14.1);
+        glVertex3f(10.0,-20.0,-14.1);
+        glVertex3f(10.0,-20.0,-13.1);
+        glVertex3f(10.0,-16.0,-13.1);
+    glEnd();
+
+    glBegin(GL_LINES);
+        glColor3f(0.0,0.0,0.0);
+        glVertex3f(10.0,-18.0,-13.1);
+        glVertex3f(30.0,-18.0,-13.1);
+        glEnd();
     /////////////////////////////////////////////////////////
 
     glPopMatrix();
