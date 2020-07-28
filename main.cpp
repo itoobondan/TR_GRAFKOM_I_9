@@ -29,9 +29,18 @@ float ydiff=0.0;
 bool mousedown = false;
 int x;
 int is_depth;
-int a;
+int a=0;
 GLfloat xRotated, yRotated, zRotated;
 GLdouble radius=1;//to set the radius of the circle
+
+void timer(int m)
+{
+//  setAngle(angle)
+//  Display();
+    glutPostRedisplay();
+    glutTimerFunc(700,timer,10);
+    glColor3f(1.0,1.0,1.0);
+}
 
 
 int main(int argc, char **argv)
@@ -41,6 +50,7 @@ int main(int argc, char **argv)
     glutInitWindowSize(800,600);
     glutInitWindowPosition(250,80);
     glutCreateWindow("Emerald Place Kempinski Dubai");
+    timer(0);
     init();
     glutDisplayFunc(display);
     glutReshapeFunc(ukuran);
@@ -65,6 +75,9 @@ void init(void)
     glPointSize(2.5);
     glLineWidth(2.0);
 }
+
+
+
 
 void ngon(int n, float cx, float cy, float radius, float rotAngle){
     double angle, angleInc;
@@ -95,27 +108,14 @@ void display(void) //
     glRotatef(yrot, 0.0, 1.0, 0.0);
 
     glPushMatrix();
-
+    float frametime = 4;
     glBegin(GL_POLYGON);
-    glColor3f(1.0,0.0,0.0);
-       // glVertex3f(30 * cos(3.14159265*6), 30 * sin(3.14159265*6) , 40.0);
-       //glVertex2f(40 * cos(2*3.14159265*2/6), 40 * sin(2*3.14159265*2/6));
-       // glVertex2f(40 * cos(2*3.14159265*3/6), 40 * sin(2*3.14159265*3/6));
-       // glVertex2f(40 * cos(2*3.14159265*4/6), 40 * sin(2*3.14159265*4/6));
-       // glVertex2f(40 * cos(2*3.14159265*5/6), 40 * sin(2*3.14159265*5/6));
-       // glVertex2f(40 * cos(2*3.14159265*6/6), 40 * sin(2*3.14159265*6/6));
-        ngon(500,0,30,5,0);
+    glColor3f(a+=1.0,1.1, 1.0);
+    ngon(500,0,30,5,0);
+    glPushMatrix();
+    glColor3f(a+=0.0,1.1, 1.0);
+    glPopMatrix();
     glEnd();
-
-/*    glBegin(GL_POLYGON);
-    glColor3f(1.0,0.0,0.0);
-        //glVertex3f(10 * cos(3.14159265*6), 10 * sin(3.14159265*6) , 0);
-       //glVertex2f(40 * cos(2*3.14159265*2/6), 40 * sin(2*3.14159265*2/6));
-        //glVertex2f(40 * cos(2*3.14159265*3/6), 40 * sin(2*3.14159265*3/6));
-       //glVertex2f(40 * cos(2*3.14159265*4/6), 40 * sin(2*3.14159265*4/6));
-        //glVertex2f(40 * cos(2*3.14159265*5/6), 40 * sin(2*3.14159265*5/6));
-        //glVertex2f(40 * cos(2*3.14159265*6/6), 40 * sin(2*3.14159265*6/6));
-        ngon(4,-40,-20,0,4);*/
 
 ////////////////////////////////////////////////////////////
 
@@ -1575,4 +1575,3 @@ void ukuran(int lebar, int tinggi)
     glTranslatef(0.0,-5.0,-150.0);
     glMatrixMode(GL_MODELVIEW);
 }
-
