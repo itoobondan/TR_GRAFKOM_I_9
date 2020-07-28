@@ -7,7 +7,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-#define RATIO 1.200 //mendefinisikan rasio dengan perbandingan 1:1.200
+#define RATIO 1.100 //mendefinisikan rasio dengan perbandingan 1:1.200
 #define WW 100 //lebar viewport = 100
 #define WH (WW/RATIO) // tinggi viewport
 #define HALFX ((int)(WW/2)) //koordinat X min atau max
@@ -42,6 +42,13 @@ void timer(int m)
     glColor3f(1.0,1.0,1.0);
 }
 
+void reshape(int l, int t)
+{
+    glutReshapeWindow(l,(int)(l/RATIO));
+    lwindow = l;
+    twindow = (int)(l/RATIO);
+    init();
+}
 
 int main(int argc, char **argv)
 {
@@ -49,10 +56,19 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize(800,600);
     glutInitWindowPosition(250,80);
+    //inisialisasi lebar dan tinggi window pake rasio
+    lwindow = (int)(glutGet((GLenum)GLUT_SCREEN_WIDTH)*.4);
+    twindow = (int)(lwindow/RATIO);
+
+    //membuat window
+    glutInitWindowSize(lwindow,twindow);
+    glutInitWindowPosition((int)(glutGet((GLenum)GLUT_SCREEN_WIDTH)*.1),
+        (glutGet((GLenum)GLUT_SCREEN_HEIGHT)/2)-(twindow/2));
     glutCreateWindow("Emerald Place Kempinski Dubai");
     timer(0);
     init();
     glutDisplayFunc(display);
+     glutReshapeFunc(reshape);
     glutReshapeFunc(ukuran);
     glutKeyboardFunc(keyboard);
     glutMouseFunc(mouse);
@@ -106,6 +122,7 @@ void display(void) //
     gluLookAt(0.0, 0.0, 3.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);//untuk mengatur penglihatan mata/penglihatan objek
     glRotatef(xrot, 1.0, 0.0, 0.0);
     glRotatef(yrot, 0.0, 1.0, 0.0);
+    //Matahari dengan timer agar berubah warna ketika berputar
 
     glPushMatrix();
     float frametime = 4;
@@ -118,15 +135,6 @@ void display(void) //
     glEnd();
 
 ////////////////////////////////////////////////////////////
-
- /*   glColor3f(0.0,1.0,0.0);
-    glRectf(10.0,30.0,0.0,20.0);
-    glColor3f(0.0,0.0,1.0);
-    glPushMatrix();
-    glTranslated(20,20,30);
-    glRectf(20.0,40.0,30.0,30.0);
-    glPopMatrix();*/
-
 /////////////////////////////////////////////////////////////
 
 
