@@ -4,7 +4,7 @@
 #else
 #include <GL/glut.h>
 #endif
-
+#include <math.h>
 #include <stdlib.h>
 
 #define RATIO 1.200 //mendefinisikan rasio dengan perbandingan 1:1.200
@@ -30,6 +30,8 @@ bool mousedown = false;
 int x;
 int is_depth;
 int a;
+GLfloat xRotated, yRotated, zRotated;
+GLdouble radius=1;//to set the radius of the circle
 
 
 int main(int argc, char **argv)
@@ -64,6 +66,23 @@ void init(void)
     glLineWidth(2.0);
 }
 
+void ngon(int n, float cx, float cy, float radius, float rotAngle){
+    double angle, angleInc;
+    int k;
+
+    if(n<3) return;
+    angle=rotAngle*3.14159265/500;
+    angleInc=2*3.14159265/n;
+
+    //ini titik pertama
+    glVertex2f(radius*cos(angle)+cy, radius*sin(angle)+cy);
+
+    //ini titik berikutnya
+    for(k=0;k<n;k++){
+        angle+=angleInc;
+        glVertex2f(radius*cos(angle)+cy, radius*sin(angle)+cy);
+    }
+}
 void display(void) //
 {
     if (is_depth)
@@ -76,6 +95,40 @@ void display(void) //
     glRotatef(yrot, 0.0, 1.0, 0.0);
 
     glPushMatrix();
+
+    glBegin(GL_POLYGON);
+    glColor3f(1.0,0.0,0.0);
+       // glVertex3f(30 * cos(3.14159265*6), 30 * sin(3.14159265*6) , 40.0);
+       //glVertex2f(40 * cos(2*3.14159265*2/6), 40 * sin(2*3.14159265*2/6));
+       // glVertex2f(40 * cos(2*3.14159265*3/6), 40 * sin(2*3.14159265*3/6));
+       // glVertex2f(40 * cos(2*3.14159265*4/6), 40 * sin(2*3.14159265*4/6));
+       // glVertex2f(40 * cos(2*3.14159265*5/6), 40 * sin(2*3.14159265*5/6));
+       // glVertex2f(40 * cos(2*3.14159265*6/6), 40 * sin(2*3.14159265*6/6));
+        ngon(500,0,30,5,0);
+    glEnd();
+
+/*    glBegin(GL_POLYGON);
+    glColor3f(1.0,0.0,0.0);
+        //glVertex3f(10 * cos(3.14159265*6), 10 * sin(3.14159265*6) , 0);
+       //glVertex2f(40 * cos(2*3.14159265*2/6), 40 * sin(2*3.14159265*2/6));
+        //glVertex2f(40 * cos(2*3.14159265*3/6), 40 * sin(2*3.14159265*3/6));
+       //glVertex2f(40 * cos(2*3.14159265*4/6), 40 * sin(2*3.14159265*4/6));
+        //glVertex2f(40 * cos(2*3.14159265*5/6), 40 * sin(2*3.14159265*5/6));
+        //glVertex2f(40 * cos(2*3.14159265*6/6), 40 * sin(2*3.14159265*6/6));
+        ngon(4,-40,-20,0,4);*/
+
+////////////////////////////////////////////////////////////
+
+ /*   glColor3f(0.0,1.0,0.0);
+    glRectf(10.0,30.0,0.0,20.0);
+    glColor3f(0.0,0.0,1.0);
+    glPushMatrix();
+    glTranslated(20,20,30);
+    glRectf(20.0,40.0,30.0,30.0);
+    glPopMatrix();*/
+
+/////////////////////////////////////////////////////////////
+
 
     //Bagian tanah
     glBegin(GL_QUADS);
@@ -135,6 +188,7 @@ void display(void) //
     //Bagian atap kiri
     glBegin(GL_QUADS);
         glColor3f(229/255.0f,171/255.0f,71/255.0f);
+        glScalef(0.5f, 0.5f, 1.0f);
         glVertex3f(-10.0,10.0,3.0);
         glVertex3f(-15.0,10.0,3.0);
         glVertex3f(-15.0,10.0,-3.0);
@@ -1447,7 +1501,7 @@ void keyboard(unsigned char key, int x, int y)
 {
     switch (key)
     {
-    /*case 'w':
+    case 'w':
     case 'W':
         glTranslatef(0.0,0.0,12.0); //KEDEPAN
         break;
@@ -1468,7 +1522,25 @@ void keyboard(unsigned char key, int x, int y)
         break;
     case'e':
         glTranslatef(0.0,3.0,3.0);//KEBAWAH
-        break;*/
+        break;
+        case '2':
+        glRotatef(2.0,1.0,0.0,0.0);//rotate bawah
+        break;
+    case '8':
+        glRotatef(-2.0,1.0,0.0,0.0);//rotate atas
+        break;
+    case '6':
+        glRotatef(2.0,0.0,1.0,0.0);//rotate kanan x
+        break;
+    case '4':
+        glRotatef(-2.0,0.0,1.0,0.0);//rotate kiri x
+        break;
+    case '1':
+        glRotatef(2.0,0.0,0.0,1.0);//rotate kiri y
+        break;
+    case '3':
+        glRotatef(-2.0,0.0,0.0,1.0);//rotate kanan y
+        break;
     case '5':
         if(is_depth)
         {
@@ -1503,3 +1575,4 @@ void ukuran(int lebar, int tinggi)
     glTranslatef(0.0,-5.0,-150.0);
     glMatrixMode(GL_MODELVIEW);
 }
+
